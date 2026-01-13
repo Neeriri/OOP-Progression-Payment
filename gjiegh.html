@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            background-color: #fff;
+        }
+        header, nav, main, section, article, aside, footer {
+            margin-bottom: 20px;
+            padding: 15px;
+        }
+        header, footer {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+        }
+        nav {
+            background-color: #e9ecef;
+            border: 1px solid #dee2e6;
+        }
+        section, article, aside {
+            border: 1px solid #97bde4;
+            background-color: #5faae6;
+        }
+        h1, h2, h3 {
+            color: #fa0808;
+            margin-top: 0;
+        }
+        h1 { font-size: 2em; margin-bottom: 10px; }
+        h2 { font-size: 1.5em; margin-bottom: 10px; }
+        h3 { font-size: 1.2em; margin-bottom: 8px; }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: #0752a2;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #09ed55;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #077ef6;
+            font-weight: bold;
+        }
+        .gallery {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+        figure {
+            margin: 15px 0;
+            text-align: center;
+        }
+        figcaption {
+            font-style: italic;
+            color: #0b0a0a;
+            margin-top: 5px;
+        }
+        form {
+            margin: 15px 0;
+        }
+        .form-group {
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            font-family: inherit;
+        }
+        button {
+            background-color: #ef0855;
+            color: rgb(13, 12, 12);
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        ul, {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        blockquote {
+            background-color: #f8f9fa;
+            border-left: 4px solid #0968cd;
+            padding: 15px;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        a {
+            color: #1b3f65;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .contact-links a {
+            display: inline-block;
+            margin-right: 15px;
+        }
+        
+        
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Моясемантическая страница</h1>
+        <p>Лабораторная работа №1 по семантике</p>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#about">О себе</a></li>
+            <li><a href="#skills">Навыки</a></li>
+            <li><a href="#g">Галерея</a></li>
+            <li><a href="#q">Цитата</a></li>
+            <li><a href="#form">Форма</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="about">
+            <h2>О себе</h2>
+            <p>Привет! Меня зовут Наиль и я з писать этот код.</p>
+            <ul>
+                <li>Программирование</li>
+                <li>Чтение книг</li>
+            </ul>
+            <p>Также я учусь использовать какие то буковки</p>
+        </section>
+        <section id="skills">
+            <h2>Навыки</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Технология</th>
+                        <th>Уровень владения</th>
+                        <th>Опыт</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Чет должен быть но я до</td>
+                        <td>гуд</td>
+                        <td>хзззз</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section id="g">
+            <h2>Галерея</h2>
+            <div class="gallery">
+                <figure>
+                    <img src="https://i.pinimg.com/originals/a4/ce/40/a4ce407b3066d06047506f688d3faefd.jpg
+" alt="Скриншот первого проекта">
+                    <figcaption>Тут должен быть мой первый проект</figcaption>
+                </figure>
+            </div>
+            <article>
+            <h2>Карточка проекта</h2>
+            <p>Это карточка с изображением </p>
+            <button>Подробнее</button>
+            </article>
+        </section>
+        
+        <section id="q">
+            <h2>Цитата</h2>
+            <blockquote>
+                "Цитат д мозгов н"
+            </blockquote>
+        </section>
+        <section id="form">
+            <h2> связи сульфата меди</h2>
+            <form action="/submit" method="post">
+                <div class="form-group">
+                    <label for="name">Имя:</label>
+                    <input type="text" id="name" name="name" required placeholder="Введите ваше имя">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="Введите ваш email">
+                </div>
+                <div class="form-group">
+                    <label for="message">Сообщение:</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Введите ваше сообщение..." required></textarea>
+                </div>
+                <button type="submit">Отправить</button>
+            </form>
+        </section>
+        
+        <aside>
+            <h3>Дополнительная инфа</h3>
+            <div class="contact-links">
+                <p><strong>Контакты:</strong></p>
+                <a href="mailto:khametov_08@mail.ru">khametov_08@mail.ru</a>
+                <a href="tel:+79172226873">+7 9172226873</a>
+            </div>
+        </aside>
+    </main>
+    
+    <footer>
+        <p>2025 Все права защищены.</p>
+        
+    </footer>
+</body>
+</html>
