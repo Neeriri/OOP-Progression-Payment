@@ -1,0 +1,5 @@
+{
+  "ignore": ["*.log", "tmp/", "public/"],
+  "delay": "1000",
+  "ext": "js,json,ejs"
+}

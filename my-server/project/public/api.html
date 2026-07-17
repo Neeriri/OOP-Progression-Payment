@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Тест API</title>
+  <style>
+    body { font-family: Arial; padding: 20px; max-width: 800px; margin: auto; }
+    .section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; border-radius: 8px; }
+    input, button { padding: 8px; margin: 5px 0; }
+    button { background: #007bff; color: white; border: none; cursor: pointer; }
+    button:hover { background: #0056b3; }
+    .result { background: #f4f4f4; padding: 10px; border-radius: 4px; white-space: pre-wrap; font-size: 12px; }
+    .error { color: red; }
+    .success { color: green; }
+  </style>
+</head>
+<body>
+  <h1>🧪 Тестирование API</h1>
+  <div class="section">
+    <h3>📥 GET запросы (просто кликните)</h3>
+    <a href="/api/categories" target="_blank"><button>GET /api/categories</button></a>
+    <a href="/api/dishes" target="_blank"><button>GET /api/dishes</button></a>
+  </div>
+
+  <div class="section">
+    <h3>➕ Создать категорию (POST)</h3>
+    <input type="text" id="catName" placeholder="Название категории" value="Супы">
+    <button onclick="createCategory()">Создать</button>
+    <div id="createResult" class="result"></div>
+  </div>
+  <div class="section">
+    <h3>🍽️ Создать блюдо (POST)</h3>
+    <input type="text" id="dishName" placeholder="Название" value="Борщ">
+    <input type="number" id="dishPrice" placeholder="Цена" value="350">
+    <input type="number" id="dishWeight" placeholder="Вес (г)" value="300">
+    <input type="number" id="dishCatId" placeholder="ID категории" value="1">
+    <button onclick="createDish()">Создать блюдо</button>
+    <div id="dishResult" class="result"></div>
+  </div>
+  <div class="section">
+    <h3>🗑️ Удалить категорию (DELETE)</h3>
+    <input type="number" id="deleteId" placeholder="ID категории" value="1">
+    <button onclick="deleteCategory()" style="background:#dc3545;">Удалить</button>
+    <div id="deleteResult" class="result"></div>
+  </div>
+
+  <script>
+    const API = 'http://localhost:3000/api';
+
+    async function request(url, method = 'GET', body = null) {
+      try {
+        const res = await fetch(url, {
+          method,
+          headers: {'Content-Type': 'application/json'},
+          body: body ? JSON.stringify(body) : null
+        });
+        const data = await res.json();
+        return {success: true, data, status: res.status};
+      } catch (err) {
+        return {success: false, error: err.message};
+      }
+    }
+
+    function showResult(elId, result) {
+      const el = document.getElementById(elId);
+      if (result.success) {
+        el.className = 'result success';
+        el.textContent = '✅ ' + JSON.stringify(result.data, null, 2);
+      } else {
+        el.className = 'result error';
+        el.textContent = '❌ ' + (result.error || JSON.stringify(result.data));
+      }
+    }
+
+    async function createCategory() {
+      const name = document.getElementById('catName').value;
+      const result = await request(`${API}/categories`, 'POST', {name});
+      showResult('createResult', result);
+    }
+
+    async function createDish() {
+      const result = await request(`${API}/dishes`, 'POST', {
+        name: document.getElementById('dishName').value,
+        price: +document.getElementById('dishPrice').value,
+        weight_grams: +document.getElementById('dishWeight').value,
+        category_id: +document.getElementById('dishCatId').value
+      });
+      showResult('dishResult', result);
+    }
+
+    async function deleteCategory() {
+      const id = document.getElementById('deleteId').value;
+      const result = await request(`${API}/categories/${id}`, 'DELETE');
+      showResult('deleteResult', result);
+    }
+  </script>
+</body>
+</html>
